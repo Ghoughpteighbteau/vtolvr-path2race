@@ -1,0 +1,5 @@
+CustomScenarios
+*.shorter_data
+node_modules
+*.mp3
+*.html
