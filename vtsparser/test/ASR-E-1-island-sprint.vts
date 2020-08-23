@@ -1,0 +1,700 @@
+CustomScenario
+{
+	gameVersion = 1.0.1f1
+	campaignID = 
+	campaignOrderIdx = -1
+	scenarioName = ASR-E-1 Island Sprint
+	scenarioID = ASR-E-1-island-sprint
+	scenarioDescription = 
+	mapID = map_akutan
+	vehicle = F/A-26B
+	allowedEquips = fa26_droptank;fa26_droptankXL;fa26-cft;fa26_gun;af_amraam;af_amraamRail;af_aim9;fa26_aim9x2;fa26_aim9x3;fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_tgp;fa26_harmx1;fa26_harmx1dpMount;fa26_sidearmx1;fa26_sidearmx2;fa26_sidearmx3;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+	forcedEquips = ;;;;;;;;;;;;;;;;
+	forceEquips = True
+	normForcedFuel = 1
+	equipsConfigurable = False
+	baseBudget = 100000
+	isTraining = False
+	rtbWptID = 
+	refuelWptID = 
+	envName = day
+	selectableEnv = False
+	qsMode = Anywhere
+	qsLimit = -1
+	UNITS
+	{
+		UnitSpawner
+		{
+			unitName = Player
+			globalPosition = (28911.995483398438, 0.129638671875, 32618.555114746094)
+			unitInstanceID = 0
+			unitID = PlayerSpawn
+			rotation = (-1.855525E-05, 198.9058, -9.062343E-06)
+			spawnChance = 100
+			lastValidPlacement = (28911.995483398438, 0.129638671875, 32618.555114746094)
+			spawnFlags = 
+			UnitFields
+			{
+				startMode = FlightReady
+				initialSpeed = 0
+				unitGroup = null
+			}
+		}
+	}
+	PATHS
+	{
+		PATH
+		{
+			id = 0
+			name = Race Path
+			loop = False
+			points = (28343.341796875, 164.515625, 30978.30859375);(27814.41943359375, 164.515625, 30319.0908203125);(26841.10498046875, 336.54345703125, 30165.57080078125);(26106.38818359375, 500.9296875, 30485.767578125);(25068.13916015625, 807.0185546875, 31513.723876953125);(23903.44775390625, 423.44921875, 31602.385498046875);(23330.6484375, 389.75439453125, 30928.3466796875);(24730.66796875, 793.25732421875, 29641.91552734375);(25440.30078125, 451.7275390625, 28824.02490234375);(24242.947265625, 280.962890625, 27757.40380859375);(22927.125, 451.7275390625, 27761.97314453125);(22853.75, 502.458984375, 28607.66650390625);(24135.8271484375, 817.07177734375, 28718.787109375);(25084.38232421875, 475.5419921875, 28459.9453125);(25242.14892578125, 688.845703125, 29725.080078125);(25470.69287109375, 969.13525390625, 32007.03564453125);(24798.2421875, 436.962890625, 32731.46630859375);(24666.0751953125, 303.919921875, 33566.637451171875);(25808.925048828125, 524.38818359375, 34849.52490234375);(25775.981689453125, 865.751953125, 35843.150390625);(25245.099365234375, 1518.46533203125, 36697.21826171875);(23889.1806640625, 986.2939453125, 37228.91357421875);
+			pathMode = Smooth
+		}
+	}
+	WAYPOINTS
+	{
+		WAYPOINT
+		{
+			id = 0
+			name = RTB
+			globalPoint = (28704.232177734375, 0.129638671875, 32029.373168945313)
+		}
+		WAYPOINT
+		{
+			id = 1
+			name = Race 1
+			globalPoint = (28343.341796875, 164.51611328125, 30978.30859375)
+		}
+		WAYPOINT
+		{
+			id = 2
+			name = Race 2
+			globalPoint = (27814.41943359375, 164.51611328125, 30319.090698242188)
+		}
+		WAYPOINT
+		{
+			id = 3
+			name = Race 3
+			globalPoint = (26841.10498046875, 336.5438232421875, 30165.570983886719)
+		}
+		WAYPOINT
+		{
+			id = 4
+			name = Race 4
+			globalPoint = (26106.38818359375, 500.9302978515625, 30485.767578125)
+		}
+		WAYPOINT
+		{
+			id = 5
+			name = Race 5
+			globalPoint = (25068.13916015625, 807.018798828125, 31513.723876953125)
+		}
+		WAYPOINT
+		{
+			id = 6
+			name = New Waypoint
+			globalPoint = (23903.44775390625, 423.4498291015625, 31602.385498046875)
+		}
+		WAYPOINT
+		{
+			id = 7
+			name = New Waypoint
+			globalPoint = (23330.6484375, 389.7548828125, 30928.3466796875)
+		}
+		WAYPOINT
+		{
+			id = 8
+			name = New Waypoint
+			globalPoint = (24730.66796875, 793.2576904296875, 29641.91552734375)
+		}
+	}
+	UNITGROUPS
+	{
+	}
+	TimedEventGroups
+	{
+		TimedEventGroup
+		{
+			groupName = Initiation Event Group
+			groupID = 0
+			beginImmediately = True
+			initialDelay = 3
+			TimedEventInfo
+			{
+				eventName = Initiation Event
+				time = 0
+				EventTarget
+				{
+					targetType = Unit
+					targetID = 0
+					eventName = Set Waypoint
+					methodName = SetWaypoint
+					ParamInfo
+					{
+						type = Waypoint
+						value = 1
+						name = Waypoint
+					}
+				}
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Send Path to GPS
+					methodName = SendPathToGPS
+					ParamInfo
+					{
+						type = System.Single
+						value = 1
+						name = Target Group
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,10)
+						}
+						ParamAttrInfo
+						{
+							type = UnitSpawnAttributeRange+RangeTypes
+							data = Int
+						}
+					}
+					ParamInfo
+					{
+						type = FollowPath
+						value = 0
+						name = Path
+					}
+				}
+			}
+		}
+		TimedEventGroup
+		{
+			groupName = Race 1 Reach
+			groupID = 2
+			beginImmediately = False
+			initialDelay = 0
+			TimedEventInfo
+			{
+				eventName = New Timed Event
+				time = 0
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Light Flare
+					methodName = LightFlareAtPos
+					ParamInfo
+					{
+						type = FixedPoint
+						value = (27745.545684814453, 167.49478149414063, 30397.381423950195)
+						name = Position
+					}
+					ParamInfo
+					{
+						type = System.Single
+						value = 100
+						name = Seconds
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,99999)
+						}
+					}
+					ParamInfo
+					{
+						type = SmokeFlare+FlareColors
+						value = Red
+						name = Color
+					}
+				}
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Light Flare
+					methodName = LightFlareAtPos
+					ParamInfo
+					{
+						type = FixedPoint
+						value = (27861.400177001953, 167.49478149414063, 30240.078887939453)
+						name = Position
+					}
+					ParamInfo
+					{
+						type = System.Single
+						value = 100
+						name = Seconds
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,99999)
+						}
+					}
+					ParamInfo
+					{
+						type = SmokeFlare+FlareColors
+						value = Red
+						name = Color
+					}
+				}
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Light Flare
+					methodName = LightFlareAtPos
+					ParamInfo
+					{
+						type = FixedPoint
+						value = (26859.441131591797, 342.50692749023438, 30271.606735229492)
+						name = Position
+					}
+					ParamInfo
+					{
+						type = System.Single
+						value = 100
+						name = Seconds
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,99999)
+						}
+					}
+					ParamInfo
+					{
+						type = SmokeFlare+FlareColors
+						value = Red
+						name = Color
+					}
+				}
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Light Flare
+					methodName = LightFlareAtPos
+					ParamInfo
+					{
+						type = FixedPoint
+						value = (26838.893035888672, 342.50692749023438, 30066.849822998047)
+						name = Position
+					}
+					ParamInfo
+					{
+						type = System.Single
+						value = 100
+						name = Seconds
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,99999)
+						}
+					}
+					ParamInfo
+					{
+						type = SmokeFlare+FlareColors
+						value = Red
+						name = Color
+					}
+				}
+			}
+		}
+		TimedEventGroup
+		{
+			groupName = Race 2 Reach
+			groupID = 3
+			beginImmediately = False
+			initialDelay = 0
+			TimedEventInfo
+			{
+				eventName = New Timed Event
+				time = 0
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Light Flare
+					methodName = LightFlareAtPos
+					ParamInfo
+					{
+						type = FixedPoint
+						value = (26159.136840820313, 504.0413818359375, 30567.696899414063)
+						name = Position
+					}
+					ParamInfo
+					{
+						type = System.Single
+						value = 100
+						name = Seconds
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,99999)
+						}
+					}
+					ParamInfo
+					{
+						type = SmokeFlare+FlareColors
+						value = Red
+						name = Color
+					}
+				}
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Light Flare
+					methodName = LightFlareAtPos
+					ParamInfo
+					{
+						type = FixedPoint
+						value = (26045.423400878906, 504.0413818359375, 30422.394378662109)
+						name = Position
+					}
+					ParamInfo
+					{
+						type = System.Single
+						value = 100
+						name = Seconds
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,99999)
+						}
+					}
+					ParamInfo
+					{
+						type = SmokeFlare+FlareColors
+						value = Red
+						name = Color
+					}
+				}
+			}
+		}
+		TimedEventGroup
+		{
+			groupName = Race 3 Reach
+			groupID = 4
+			beginImmediately = False
+			initialDelay = 0
+			TimedEventInfo
+			{
+				eventName = New Timed Event
+				time = 0
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Light Flare
+					methodName = LightFlareAtPos
+					ParamInfo
+					{
+						type = FixedPoint
+						value = (25120.034950256348, 808.22540283203125, 31599.445580482483)
+						name = Position
+					}
+					ParamInfo
+					{
+						type = System.Single
+						value = 100
+						name = Seconds
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,99999)
+						}
+					}
+					ParamInfo
+					{
+						type = SmokeFlare+FlareColors
+						value = Red
+						name = Color
+					}
+				}
+				EventTarget
+				{
+					targetType = System
+					targetID = 0
+					eventName = Light Flare
+					methodName = LightFlareAtPos
+					ParamInfo
+					{
+						type = FixedPoint
+						value = (25022.099472045898, 808.2254638671875, 31430.038269042969)
+						name = Position
+					}
+					ParamInfo
+					{
+						type = System.Single
+						value = 100
+						name = Seconds
+						ParamAttrInfo
+						{
+							type = MinMax
+							data = (1,99999)
+						}
+					}
+					ParamInfo
+					{
+						type = SmokeFlare+FlareColors
+						value = Red
+						name = Color
+					}
+				}
+			}
+		}
+	}
+	TRIGGER_EVENTS
+	{
+	}
+	OBJECTIVES
+	{
+		Objective
+		{
+			objectiveName = Land
+			objectiveInfo = 
+			objectiveID = 0
+			orderID = 0
+			required = True
+			completionReward = 0
+			waypoint = 0
+			autoSetWaypoint = True
+			startMode = Final
+			objectiveType = Land
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+				}
+			}
+			fields
+			{
+				radius = 1809.068
+			}
+		}
+		Objective
+		{
+			objectiveName = Race 1
+			objectiveInfo = 
+			objectiveID = 1
+			orderID = 1
+			required = True
+			completionReward = 0
+			waypoint = 1
+			autoSetWaypoint = True
+			startMode = Immediate
+			objectiveType = Fly_To
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+					EventTarget
+					{
+						targetType = Timed_Events
+						targetID = 2
+						eventName = Begin
+						methodName = Begin
+					}
+				}
+			}
+			fields
+			{
+				triggerRadius = 100
+				sphericalRadius = True
+			}
+		}
+		Objective
+		{
+			objectiveName = Race 2
+			objectiveInfo = 
+			objectiveID = 2
+			orderID = 2
+			required = True
+			completionReward = 0
+			waypoint = 2
+			autoSetWaypoint = True
+			startMode = PreReqs
+			objectiveType = Fly_To
+			preReqObjectives = 1;
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+					EventTarget
+					{
+						targetType = Timed_Events
+						targetID = 3
+						eventName = Begin
+						methodName = Begin
+					}
+				}
+			}
+			fields
+			{
+				triggerRadius = 200
+				sphericalRadius = True
+			}
+		}
+		Objective
+		{
+			objectiveName = Race 3
+			objectiveInfo = 
+			objectiveID = 3
+			orderID = 3
+			required = True
+			completionReward = 0
+			waypoint = 3
+			autoSetWaypoint = True
+			startMode = PreReqs
+			objectiveType = Fly_To
+			preReqObjectives = 2;
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+					EventTarget
+					{
+						targetType = Timed_Events
+						targetID = 4
+						eventName = Begin
+						methodName = Begin
+					}
+				}
+			}
+			fields
+			{
+				triggerRadius = 200
+				sphericalRadius = True
+			}
+		}
+		Objective
+		{
+			objectiveName = Race 4
+			objectiveInfo = 
+			objectiveID = 4
+			orderID = 4
+			required = True
+			completionReward = 0
+			waypoint = 4
+			autoSetWaypoint = True
+			startMode = PreReqs
+			objectiveType = Fly_To
+			preReqObjectives = 3;
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+				}
+			}
+			fields
+			{
+				triggerRadius = 200
+				sphericalRadius = True
+			}
+		}
+	}
+	StaticObjects
+	{
+	}
+	Conditionals
+	{
+	}
+	ConditionalActions
+	{
+	}
+	EventSequences
+	{
+	}
+	BASES
+	{
+		BaseInfo
+		{
+			id = 0
+			overrideBaseName = 
+			baseTeam = Allied
+		}
+	}
+	GlobalValues
+	{
+	}
+	Briefing
+	{
+	}
+}
+

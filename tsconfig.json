@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outFile": "./dist/src.js",
+    "lib": [ "es2019", "dom" ],
+    "target":"ES2016",
+    "sourceMap": true,
+    "moduleResolution": "node",
+  },
+  "include": ["*.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+  }

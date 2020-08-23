@@ -3,3 +3,4 @@ CustomScenarios
 node_modules
 *.mp3
 *.html
+dist/

@@ -1,0 +1,17 @@
+gameVersion = 1.0.1f1
+campaignID = 
+campaignOrderIdx = -1
+scenarioName = ASR-E-1 Island Sprint
+testarr
+{
+  fghj = 5
+}
+testarr
+{
+  dfgh = 6
+}
+testobj
+{
+  asdf = 1
+  zxcv = 2
+}
