@@ -1,6 +1,6 @@
 {
   "triggerTaskOnSave.tasks": {
-    "build": [
+    "test": [
         "*.ts",
     ],
   },

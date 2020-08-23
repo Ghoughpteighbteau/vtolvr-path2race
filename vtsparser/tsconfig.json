@@ -5,7 +5,6 @@
     "preserveConstEnums": true,
     "lib": [ "es2019", "dom" ],
     "typeRoots": [ "./node_modules/@types" ],
-    "outFile": "./test.js",
-    "module": "system",
-  }
+  },
+  "exclude": [ "./test/*" ],
 }

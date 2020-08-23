@@ -1,23 +1,33 @@
-export = {};
+export type ScenarioValue = string | ScenarioObject | Array<ScenarioObject>;
+export interface ScenarioObject { [index: string]: ScenarioValue };
+type Point3D = [number, number, number];
+type Path = Array<Point3D>;
+export const vtsparser = {
+  loadFile: loadFile,
+  parse: parse,
+  parsePath: parsePath,
+  write: write,
+  writePath: writePath,
+  isStr: function isStr(v: ScenarioValue): v is string{
+    return typeof v === 'string';
+  },
+  isObj: function isObj(v: ScenarioValue): v is ScenarioObject{
+    return v instanceof Object && !Array.isArray(v);
+  },
+  isArr: function isArr(v: ScenarioValue): v is Array<ScenarioObject>{
+    return Array.isArray(v);
+  },
+};
 
-var filelns = file.split(/\r?\n/).map(ln=>ln.trim());
-
-type ScenarioValue = string | ScenarioObject | Array<ScenarioObject>;
-interface ScenarioObject {
-  [index: string]: ScenarioValue
-}
-function isStr(v: ScenarioValue): v is string{
-  return typeof v === 'string';
-}
-function isObj(v: ScenarioValue): v is ScenarioObject{
-  return v instanceof Object && !Array.isArray(v);
-}
-function isArr(v: ScenarioValue): v is Array<ScenarioObject>{
-  return Array.isArray(v);
+let i:number;
+let filelns: Array<string>;
+function loadFile(file:string){
+  i=0;
+  filelns = file.split(/\r?\n/).map(ln=>ln.trim());
 }
 
-var i=0;
-function parseObject(): ScenarioObject {
+function parse(): ScenarioObject {
+  if(! Array.isArray(filelns)) throw "file not loaded, bro. load file.";
   var obj: ScenarioObject = {};
 
   while(i < filelns.length){
@@ -28,15 +38,15 @@ function parseObject(): ScenarioObject {
     } else if(filelns[i+1] == '{') {
       var key = filelns[i]
       i+=2;
-      if(!(key in obj))
-        obj[key] = parseObject();
-      else if(isStr(obj[key]))
+      if      (!(key in obj)){
+        obj[key] = parse();
+      }else if(vtsparser.isStr(obj[key])){
         throw "Attempted to promote string to array, that ain't right. \"" + filelns[i] +"\", line " + (i+1);
-      else if(isObj(obj[key])){
+      }else if(vtsparser.isObj(obj[key])){
         (obj[key] as Array<ScenarioObject>) = [obj[key] as ScenarioObject];
-        (obj[key] as Array<ScenarioObject>).push(parseObject());
-      }else if(isArr(obj[key])){
-        (obj[key] as Array<ScenarioObject>).push(parseObject());
+        (obj[key] as Array<ScenarioObject>).push(parse());
+      }else if(vtsparser.isArr(obj[key])){
+        (obj[key] as Array<ScenarioObject>).push(parse());
       }
     } else if (filelns[i] == '}') {
       return obj;
@@ -51,32 +61,26 @@ function parseObject(): ScenarioObject {
   return obj;
 }
 
-var scenario: ScenarioObject = parseObject();
-
-console.log(scenario);
-
-function parsePath(path: ScenarioObject){
-  if(! (path.points instanceof String)) return {}
-  return path.points
-    .split(';')
-    .filter(p=>p!='')
-    .map(p=>p.replace(/[()]/g,'')
-      .split(',')
-      .map((pd:any)=> parseFloat(pd.trim()))
-    );
+function parsePath(path: string): Path{
+  return [[1,2,3],[3,4,5]];
+  // return path
+  //   .split(';')
+  //   .filter(p=>p!='')
+  //   .map(p=>p.replace(/[()]/g,'')
+  //     .split(',')
+  //     .map((pd:any)=> parseFloat(pd.trim()))
+  //   );
 }
-// if(isObj(scenario['CustomScenario']['PATHS']['PATH']))
-// console.log(parsePath(scenario['CustomScenario']['PATHS']['PATH']));
 
-function writeObject(scenario: ScenarioObject): Array<string>{
+function write(scenario: ScenarioObject): Array<string>{
   var entries = Object.entries(scenario)
   return entries.map(e=>{
-    if(isStr(e[1])){
+    if      (vtsparser.isStr(e[1])){
       return e[0] + ' = ' + e[1];
-    }else if(isArr(e[1])){
-      return e[1].map(ae=>[e[0],'{',writeObject(ae),'}'].flat()).flat();
-    }else if(isObj(e[1])){
-      return [e[0], '{', writeObject(e[1]), '}'].flat();
+    }else if(vtsparser.isArr(e[1])){
+      return e[1].map(ae=>[e[0],'{',write(ae),'}'].flat()).flat();
+    }else if(vtsparser.isObj(e[1])){
+      return [e[0], '{', write(e[1]), '}'].flat();
     }
   }).flat();
   // return entries.map(e =>{
@@ -86,8 +90,7 @@ function writeObject(scenario: ScenarioObject): Array<string>{
   //     return [e[0],"{",writeObject(e[1])];
   // }).flat();
 }
-let rewrite = writeObject(scenario)
-console.log(rewrite);
-for(let i = 0; i<filelns.length && i<rewrite.length; i++){
-  if(filelns[i] != rewrite[i]) console.log(i, filelns[i],rewrite[i]);
+
+function writePath(path: Path): string{
+  return 'asdf';
 }
