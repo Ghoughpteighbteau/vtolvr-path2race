@@ -4,3 +4,4 @@ node_modules
 *.mp3
 *.html
 dist/
+vtsparser/index.js
