@@ -1,7 +1,9 @@
-CustomScenarios
-*.shorter_data
-node_modules
+res/CustomScenarios
 *.mp3
-*.html
+
+#Audacity
+*.shorter_data
+
+node_modules
+
 dist/
-vtsparser/index.js
