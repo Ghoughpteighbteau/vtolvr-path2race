@@ -1,15 +1,4 @@
 {
-  "triggerTaskOnSave.main": {
-    "main-build": [
-      "src.ts",
-      "index.pug",
-    ],
-  },
-  "triggerTaskOnSave.vtsparser": {
-    "vtsparser-test": [
-      "vtsparser.ts",
-    ],
-  },
   "mochaExplorer.files": "test/*.ts",
-  "mochaExplorer.require": "ts-node/register"
+  "mochaExplorer.require": "ts-node/register",
 }
