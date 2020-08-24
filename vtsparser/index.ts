@@ -6,8 +6,10 @@ export const vtsparser = {
   loadFile: loadFile,
   parse: parse,
   parsePath: parsePath,
+  parsePoint: parsePoint,
   write: write,
   writePath: writePath,
+  writePoint: writePoint,
   isStr: function isStr(v: ScenarioValue): v is string{
     return typeof v === 'string';
   },
@@ -62,14 +64,21 @@ function parse(): ScenarioObject {
 }
 
 function parsePath(path: string): Path{
-  return [[1,2,3],[3,4,5]];
-  // return path
-  //   .split(';')
-  //   .filter(p=>p!='')
-  //   .map(p=>p.replace(/[()]/g,'')
-  //     .split(',')
-  //     .map((pd:any)=> parseFloat(pd.trim()))
-  //   );
+  return path
+    .split(';')
+    .filter(p=>p!='')
+    .map(parsePoint);
+}
+
+function parsePoint(point: string): Point3D{
+  let pds=point
+  .replace(/[()]/g,'')
+  .split(',');
+  return [
+    parseFloat(pds[0]),
+    parseFloat(pds[1]),
+    parseFloat(pds[2]),
+  ];
 }
 
 function write(scenario: ScenarioObject): Array<string>{
@@ -92,5 +101,11 @@ function write(scenario: ScenarioObject): Array<string>{
 }
 
 function writePath(path: Path): string{
-  return 'asdf';
+  return path
+    .map(writePoint)
+    .reduce((acc, cur)=>acc+cur+";","");
+}
+
+function writePoint(point: Point3D): string{
+  return "(" + point[0] + ", " + point[1] + ", " + point[2] + ")";
 }
