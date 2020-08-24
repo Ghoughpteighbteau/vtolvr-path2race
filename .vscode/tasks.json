@@ -4,12 +4,26 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build",
-      "type": "npm",
-      "script": "build",
-      "problemMatcher": ["$tsc"],
+      "label": "main-build",
+      "type": "shell",
+      "command": "yarn mainbuild",
+      "problemMatcher": [
+        "$tsc"
+      ],
       "group": {
         "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "vtsparser-test",
+      "type": "shell",
+      "command": "yarn vtsbuild && yarn vtstest",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": {
+        "kind": "test",
         "isDefault": true
       }
     }

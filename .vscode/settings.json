@@ -1,8 +1,13 @@
 {
-  "triggerTaskOnSave.tasks": {
-    "build": [
-        "*.ts",
-        "*.pug",
+  "triggerTaskOnSave.main": {
+    "main-build": [
+      "src.ts",
+      "index.pug",
+    ],
+  },
+  "triggerTaskOnSave.vtsparser": {
+    "vtsparser-test": [
+      "vtsparser.ts",
     ],
   },
 }

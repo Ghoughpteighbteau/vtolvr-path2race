@@ -1,6 +1,6 @@
 import * as fs from 'fs';
-import { vtsparser } from '../index';
-import type { ScenarioObject, ScenarioValue } from '../index';
+import { vtsparser } from '../src/vtsparser';
+import type { ScenarioObject, ScenarioValue } from '../src/vtsparser';
 import { assert } from 'chai';
 const samples = {
   ps_s: [
@@ -16,7 +16,7 @@ const samples = {
     [24730.66796875, 793.2576904296875, 29641.91552734375],
     [-1, -2, -3],
     [0, 0, 0]
-  ] as Array<[number,number,number]>,
+  ] as Array<[number, number, number]>,
   path_s: "(28343.341796875, 164.515625, 30978.30859375);(27814.41943359375, 164.515625, 30319.0908203125);(26841.10498046875, 336.54345703125, 30165.57080078125);(26106.38818359375, 500.9296875, 30485.767578125);(25068.13916015625, 807.0185546875, 31513.723876953125);(23903.44775390625, 423.44921875, 31602.385498046875);(23330.6484375, 389.75439453125, 30928.3466796875);(24730.66796875, 793.25732421875, 29641.91552734375);(25440.30078125, 451.7275390625, 28824.02490234375);(24242.947265625, 280.962890625, 27757.40380859375);(22927.125, 451.7275390625, 27761.97314453125);(22853.75, 502.458984375, 28607.66650390625);(24135.8271484375, 817.07177734375, 28718.787109375);(25084.38232421875, 475.5419921875, 28459.9453125);(25242.14892578125, 688.845703125, 29725.080078125);(25470.69287109375, 969.13525390625, 32007.03564453125);(24798.2421875, 436.962890625, 32731.46630859375);(24666.0751953125, 303.919921875, 33566.637451171875);(25808.925048828125, 524.38818359375, 34849.52490234375);(25775.981689453125, 865.751953125, 35843.150390625);(25245.099365234375, 1518.46533203125, 36697.21826171875);(23889.1806640625, 986.2939453125, 37228.91357421875);",
   path_p: [
     [28343.341796875, 164.515625, 30978.30859375],
@@ -41,7 +41,7 @@ const samples = {
     [25775.981689453125, 865.751953125, 35843.150390625],
     [25245.099365234375, 1518.46533203125, 36697.21826171875],
     [23889.1806640625, 986.2939453125, 37228.91357421875],
-  ] as Array<[number,number,number]>
+  ] as Array<[number, number, number]>
 }
 describe('vtsparser', () => {
   it('should export the interfaces I expect', () => {
@@ -49,7 +49,7 @@ describe('vtsparser', () => {
       ['loadFile', 'parse', 'parsePath', 'write', 'writePath', 'isStr', 'isObj', 'isArr'],
       "Export object has all functions I expect")
   });
-  
+
   it('should be able to read tiny scenarios', () => {
     vtsparser.loadFile(fs.readFileSync("./test/tiny.vts", "utf-8"));
     assert.deepEqual(vtsparser.parse(), {
@@ -79,10 +79,10 @@ describe('vtsparser', () => {
   });
 
   it('should be able to write points', () => {
-    samples.ps_s.forEach((s, i) => assert.deepEqual(vtsparser.writePoint(samples.ps_p[i]),s));
+    samples.ps_s.forEach((s, i) => assert.deepEqual(vtsparser.writePoint(samples.ps_p[i]), s));
   });
 
   it('should be able to write paths', () => {
-    assert.deepEqual(vtsparser.writePath(samples.path_p),samples.path_s);
+    assert.deepEqual(vtsparser.writePath(samples.path_p), samples.path_s);
   });
 });

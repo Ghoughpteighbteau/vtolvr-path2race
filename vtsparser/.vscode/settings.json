@@ -1,7 +1,0 @@
-{
-  "triggerTaskOnSave.tasks": {
-    "test": [
-        "*.ts",
-    ],
-  },
-}
