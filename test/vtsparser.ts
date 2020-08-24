@@ -1,7 +1,7 @@
 import * as fs from 'fs';
-import { vtsparser } from '../src/vtsparser';
-import type { ScenarioObject, ScenarioValue } from '../src/vtsparser';
+import { vtsparser, ScenarioObject, ScenarioValue } from '../src/vtsparser';
 import { assert } from 'chai';
+
 const samples = {
   ps_s: [
     "(28704.232177734375, 0.129638671875, 32029.37316894531)",

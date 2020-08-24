@@ -18,7 +18,7 @@
   },
   "scripts": {
     "vtstest": "mocha ./test/vtsparser.ts",
-    "build": "mkdir -p ./dist/ && pug --pretty --out ./dist/ ./src/*.pug& tsc --build tsconfig.json& wait",
+    "build": "mkdir -p ./dist/lib && cp -f ./lib/* ./dist/lib/& pug --pretty --out ./dist/ ./src/*.pug& tsc --build tsconfig-build.json& wait",
     "test": "mocha ./test/*.ts"
   }
 }
