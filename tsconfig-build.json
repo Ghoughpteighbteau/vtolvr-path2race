@@ -1,16 +1,21 @@
 {
+  "extends": "./tsconfig.json",
+
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "system",
     "moduleResolution": "node",
     "noImplicitAny": true,
+    "removeComments": true,
     "preserveConstEnums": true,
+    "outFile": "./dist/src.js",
     "lib": [
-      "ES2019"
+      "es2019",
+      "dom"
     ],
-    "target": "ES2019",
+    "target": "ES2016",
     "sourceMap": true,
   },
   "include": [
-    "src/vtsparser.ts"
+    "src/*.ts"
   ]
 }

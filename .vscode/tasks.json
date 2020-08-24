@@ -17,8 +17,8 @@
     },
     {
       "label": "vtsparser-test",
-      "type": "shell",
-      "command": "yarn vtsbuild && yarn vtstest",
+      "type": "npm",
+      "script": "vtstest",
       "problemMatcher": [
         "$tsc"
       ],

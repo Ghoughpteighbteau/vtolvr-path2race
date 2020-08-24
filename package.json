@@ -17,7 +17,8 @@
     "require": "ts-node/register"
   },
   "scripts": {
-    "build": "pug --pretty --out ./dist/ ./src/*.pug& tsc --build tsconfig.json& wait",
+    "vtstest": "mocha ./test/vtsparser.ts",
+    "build": "mkdir -p ./dist/ && pug --pretty --out ./dist/ ./src/*.pug& tsc --build tsconfig.json& wait",
     "test": "mocha ./test/*.ts"
   }
 }

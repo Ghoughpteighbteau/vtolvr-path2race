@@ -14,7 +14,7 @@ export const vtsparser = {
     return typeof v === 'string';
   },
   isObj: function isObj(v: ScenarioValue): v is ScenarioObject {
-    return v instanceof Object && !Array.isArray(v);
+    return typeof v === 'object' && !Array.isArray(v);
   },
   isArr: function isArr(v: ScenarioValue): v is Array<ScenarioObject> {
     return Array.isArray(v);
