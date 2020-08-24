@@ -17,7 +17,7 @@
     "require": "ts-node/register"
   },
   "scripts": {
-    "build": "pug --pretty --out ./dist/ *.pug& tsc --build tsconfig.json& wait",
+    "build": "pug --pretty --out ./dist/ ./src/*.pug& tsc --build tsconfig.json& wait",
     "test": "mocha ./test/*.ts"
   }
 }
