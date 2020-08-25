@@ -1,15 +1,15 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "preserveConstEnums": true,
-    "lib": [
-      "ES2019"
-    ],
-    "target": "ES2019",
-  },
-  "include": [
-    "src/vtsparser.ts"
-  ]
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"preserveConstEnums": true,
+		"lib": [
+			"ES2019",
+			"dom"
+		],
+		"target": "ES2019",
+		"outDir": "./dist/build/",
+	},
+	"include": [
+		"./src/**.ts"
+	],
 }
