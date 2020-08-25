@@ -1,9 +1,10 @@
+import { Vector } from "./vector"
+
 export type ScenarioValue = string | ScenarioObject | ScenarioObject[];
 export interface ScenarioObject {
   [index: string]: ScenarioValue;
 }
-type Point3D = [number, number, number];
-type Path = Point3D[];
+type Path = Vector[];
 export const vtsparser = {
   loadFile,
   parse,
@@ -72,11 +73,11 @@ function parsePath(path: string): Path {
     .map(parsePoint);
 }
 
-function parsePoint(point: string): Point3D {
+function parsePoint(point: string): Vector {
   const pds = point
     .replace(/[()]/g, "")
     .split(",");
-  return [parseFloat(pds[0]), parseFloat(pds[1]), parseFloat(pds[2])];
+  return new Vector (parseFloat(pds[0]), parseFloat(pds[1]), parseFloat(pds[2]));
 }
 
 function write(scenario: ScenarioObject): string[] {
@@ -96,6 +97,6 @@ function writePath(path: Path): string {
   return path.map(writePoint).reduce((acc, cur) => acc + cur + ";", "");
 }
 
-function writePoint(point: Point3D): string {
-  return `(${point[0]}, ${point[1]}, ${point[2]})`;
+function writePoint(point: Vector): string {
+  return `(${point.x}, ${point.y}, ${point.z})`;
 }
