@@ -4,11 +4,92 @@ html(lang="en")
 	head
 		meta(charset="UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
-		script(src="./lib/system.js")
 		script(src="src.js" defer)
+		link(rel="stylesheet" type="text/css" href="./lib/skeleton.css")
+		style(type="text/css").
+			#parameters input {
+				float: right;
+				clear: both;
+				width: 60px;
+			}
+			#parameters label {
+				overflow: auto;
+			}
+			.title { 
+				text-align: center;
+				margin-top: 100px;
+			}
+			section {
+				margin-bottom: 100px;
+				border-bottom: 1px solid #e1e1e1;
+			}
 		title ASR Path To Objective
-	body
-		label(for='invts') Load a .vts scenario
-			input#invts(type='file')
+	body(class="container")
+		h1.title ASR - Path To Objective
+		section#step1(class="row")
+			h4 Step 1:
+			label Load a .vts scenario
+				input#in-vts(type="file")
 
-		input#renderbtn(value='Download' type='button')
+		section#step2(class="row")
+			h4 Step 2:
+			aside#parameters(class="one-third column")
+				h2 Parameters
+				label(for="base-width") Radius
+					input#base-width(value="100")
+				label(for="turn-width") Turn Width
+					input#turn-width(value="400")
+				label(for="flate-ltl") Flare Lead Time
+					input#flate-ltl(value="30")
+				label(for="flare-ttl") Flare Life Time
+					input#flare-ttl(value="90")
+				label(for="flare-color") Flare Color
+					input#flare-color(value="red")
+				details
+					summary Advanced Settings
+					label(for="gravity") Gravity
+						input#gravity(value=9.8)
+					label(for="speed-thrust") Thrust
+						input#speed-thrust
+					label(for="speed-drag") Drag
+						input#speed-drag 
+					label(for="speed-turn-drag") Turn Drag
+						input#speed-turn-drag
+
+			div(class="two-thirds column")
+				table
+					tr
+						th Path&nbsp;Name
+						th Waypoints
+						th Color
+						th Generate
+
+			details(class="twelve columns")
+				summary What will this do?
+				p
+					| This operation will generate waypoints, event groups, and objectives, with names
+					| based on the path name. For example. Assuming a path named "Fast Race" is used.
+					| ASR Path to Obj will generate the following:
+				ul 
+					li Waypoints of the form "Fast Race Start" "Fast Race 1", "Fast Race 2", ... and "Fast Race Finish"
+					li Objectives of the form "Fast Race Start" "Fast Race 1", "Fast Race 2", ... and "Fast Race Finish" and link them in sequence
+					li a Timed Event Group called "Fast Race Start Event Group", "Fast Race 1 Event Group" ect. that will spawn flares
+				p
+					| Note that this tool will erase any waypoints or event groups that are named the same as the above.
+					| this includes waypoints, objectives, or timed event groups that might not even be necesarry. 
+					| For example: if "Fast Race 142 Event Group" exists, and there are only 80 points in Fast Race,
+					| "Fast Race 142 Event Group" will still be deleted.
+				p
+					| This tool will position two flares at every point in the path, positioned such that they
+					| estimate the bank angle of the craft as it navigates the waypoint.
+					| it will make a rough guess at how fast the craft will be going as it navigates the course and
+					| make the waypoint objectives larger and easier to hit when the craft is performing larger changes
+					| in its direction. 
+				p
+					| It also tries to make a best guess when to spawn the flares such that they appear "Flare Lead Time"
+					| seconds before the craft crosses them. This is a bit impercise as it just delays from the last 
+					| objective you hit.
+
+		section#step3(class="row")
+			h4 Step 3:
+			input#download-button(value="Download" type="button")

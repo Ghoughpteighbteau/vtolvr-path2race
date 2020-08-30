@@ -1,7 +1,9 @@
 // This code was converted to typescript from this repo: https://github.com/evanw/lightgl.js/blob/master/src/vector.js
-// and thus falls under the MIT license.
+// and thus falls under the MIT license. NOT AGPL
+
 // Original author was evanw
 // Conversion done by ghoughpteighbteau
+
 // Provides a simple 3D vector class. Vector operations can be done using member
 // functions, which return new vectors, or static functions, which reuse
 // existing vectors to avoid generating garbage.
