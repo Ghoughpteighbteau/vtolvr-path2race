@@ -86,9 +86,13 @@ function write(scenario: ScenarioObject): string[] {
     if (vtsparser.isStr(e[1])) {
       return e[0] + " = " + e[1];
     } else if (vtsparser.isArr(e[1])) {
-      return e[1].map((ae) => [e[0], "{", write(ae), "}"].flat()).flat();
+      return e[1].map((ae) => [
+        e[0],
+        "{",
+        write(ae).map(s=>'\t'+s),
+        "}"].flat()).flat();
     } else if (vtsparser.isObj(e[1])) {
-      return [e[0], "{", write(e[1]), "}"].flat();
+      return [e[0], "{", write(e[1]).map(s=>'\t'+s), "}"].flat();
     }
   }).flat();
 }

@@ -4,14 +4,14 @@ campaignOrderIdx = -1
 scenarioName = ASR-E-1 Island Sprint
 testarr
 {
-  fghj = 5
+	fghj = 5
 }
 testarr
 {
-  dfgh = 6
+	dfgh = 6
 }
 testobj
 {
-  asdf = 1
-  zxcv = 2
+	asdf = 1
+	zxcv = 2
 }
