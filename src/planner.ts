@@ -22,9 +22,9 @@ export class Race {
   constructor(vts: ScenarioObject, config: RaceConfiguration) {
     this.vts = vts;
     this.config = config;
-    this.track = this.vtsToTrack(vts, config.name);
-    this.trackTimeWaypoints()
-    this.length = 0
+    this.track = Race.vtsToTrack(vts, config.name);
+    Race.trackTimeWaypoints(this.track);
+    this.length = 0;
   }
 
   static vtsToTrack(vts: ScenarioObject, name: string): Track {

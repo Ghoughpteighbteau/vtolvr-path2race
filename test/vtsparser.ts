@@ -2,7 +2,6 @@ import * as fs from "fs";
 import { ScenarioObject, vtsparser } from "../src/vtsparser";
 import { Vector } from "../src/vector";
 import { assert } from "chai";
-import { cursorTo } from "readline";
 
 const samples = {
   ps_s: [
@@ -47,6 +46,7 @@ const samples = {
   tinyvts: fs.readFileSync("./test/tiny.vts", "utf-8") as string,
   fullvts: fs.readFileSync("./test/ASR-E-1-island-sprint.vts", "utf-8") as string,
 };
+
 describe("vtsparser", () => {
   it("should export the interfaces I expect", () => {
     assert.containsAllKeys(vtsparser,
