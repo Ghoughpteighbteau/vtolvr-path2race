@@ -1,5 +1,5 @@
 {
-  "name": "asr-path-to-obj",
+  "name": "vtolvr-path2race",
   "version": "1.0.0",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
@@ -26,6 +26,6 @@
     
     "tsbuild": "esbuild --bundle ./src/src.ts --sourcemap=external --outfile=./dist/src.js",
     "pugbuild": "pug --pretty --out ./dist/ ./src/**.pug",
-    "build": "yarn run tsbuild& yarn run pugbuild& wait"
+    "build": "cp -rf ./lib ./dist/; yarn run tsbuild& yarn run pugbuild& wait"
   }
 }
